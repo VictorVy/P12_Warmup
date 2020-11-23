@@ -1,0 +1,7 @@
+class Asteroid
+{
+  public Asteroid()
+  {
+    
+  }
+}

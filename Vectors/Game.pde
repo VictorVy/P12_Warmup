@@ -1,4 +1,10 @@
 boolean up, down, left, right;
+ArrayList<Bullet> bullets = new ArrayList();
+
+void gameSetup()
+{
+  player.init();
+}
 
 void gameDraw()
 {
@@ -9,6 +15,22 @@ void gameDraw()
   
   player.show();
   player.act();
+  
+  for(int i = 0; i < bullets.size(); i++)
+  {
+    Bullet bullet = bullets.get(i);
+    
+    if(bullet.hp > 0)
+    {
+      bullet.show();
+      bullet.act();
+    }
+    else
+    {
+      bullets.remove(bullet);
+      i--;
+    }
+  }
   
   //bounds
   if(player.pos.x > width + player.size / 2)
@@ -38,6 +60,13 @@ void gameKP()
       player.turnR = true;
       break;
   }
+  
+  switch(key)
+  {
+    case ' ':
+      player.shoot = true;
+      break;
+  }
 }
 
 void gameKR()
@@ -55,6 +84,13 @@ void gameKR()
       break;
     case RIGHT:
       player.turnR = false;
+      break;
+  }
+  
+  switch(key)
+  {
+    case ' ':
+      player.shoot = false;;
       break;
   }
 }

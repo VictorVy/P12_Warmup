@@ -19,7 +19,10 @@ void introKR()
 void introMR()
 {
   if(bStart.mouseOver())
+  {
     mode = GAME;
+    gameSetup();
+  }
   if(bQuit.mouseOver())
     exit();
 }

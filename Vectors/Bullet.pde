@@ -7,7 +7,7 @@ class Bullet
   public Bullet(PVector pos, PVector dir, int size)
   {
     this.pos = pos;
-    speed = dir.setMag(4);
+    speed = dir.setMag(8);
     this.size = size;
     hp = 1;
   }
